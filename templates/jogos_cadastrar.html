@@ -7,13 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Jogos</h1>
-    <p> <a href="{% url 'cadastrar_jogo' %}"></a></p>
-   <p>Como vai ser seus jogos?</p>
-   {% for  jogos in todos_jogos %}
-   <p>Tipo:</p>
-   <p>Horário</p>
-   {% endfor %}
-    
+    <form method="post">
+    <h1>Cadastrar Jogos</h1>
+    {% csrf_token %}
+    {{ form_jogo }}
+</form>
+<p><input type="submit"  value="cadastrar"></p>
 </body>
 </html>
