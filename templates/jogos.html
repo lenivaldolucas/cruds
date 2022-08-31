@@ -8,11 +8,19 @@
 </head>
 <body>
     <h1>Jogos</h1>
-    <p> <a href="{% url 'cadastrar_jogo' %}"></a></p>
+    <p> <a href="{% url 'cadastrar_jogos' %}"></a></p>
    <p>Como vai ser seus jogos?</p>
-   {% for  jogos in todos_jogos %}
-   <p>Tipo:</p>
-   <p>Horário</p>
+   {% for  jogos in form_jogo %}
+   <p>
+    Tipo: {{jogos.tipo}}  
+    horário: {{jogos.horário}}
+     <a href="{% url 'editar_jogos' jogo.id %}">EDITAR</a>
+     <a href="{% url 'remover_jogos' jogo.id %}">REMOVER</a>
+
+   </p>
+   {% empty %}
+   <p>Não tem jogos cadastrados</p>
+   
    {% endfor %}
     
 </body>
